@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import PostListItem from '../Posts/PostListItem';
 import CommentList from './CommentList';
 import { loadPostById, loadCommentsForPost, addComment } from '../../actions';
-import { getPostById } from '../../reducers/posts';
+import { getPostById, getCategory } from '../../reducers/posts';
 import AddComment from './AddComment';
 
 class Comments extends Component {
@@ -15,11 +15,7 @@ class Comments extends Component {
     this.props.loadPostById(postId);
   }
   handleBack = () => {
-    if (this.props.post.id) {
-      this.props.history.push(`/${this.props.post.category}`);
-    } else {
-      this.props.history.push('/');
-    }
+    this.props.history.push(`/${this.props.category === 'all' ? '' : this.props.category}`);
   };
   handleAdd = (comment) => {
     const { post } = this.props;
@@ -71,6 +67,7 @@ Comments.propTypes = {
   }).isRequired,
   addComment: PropTypes.func.isRequired,
   loadPostById: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 Comments.defaultProps = {
@@ -79,6 +76,7 @@ Comments.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   post: getPostById(state, ownProps.match.params.postId),
+  category: getCategory(state),
 });
 
 export default connect(mapStateToProps, {

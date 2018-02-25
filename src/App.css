@@ -17,3 +17,27 @@
   -khtml-user-select: none; /* webkit (konqueror) browsers */
   -ms-user-select: none; /* IE10+ */
 }
+
+.button-as-link {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  cursor: pointer;
+}
+.button-as-link-red {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-family: "Roboto", sans-serif !important;
+  cursor: pointer;
+  color: #ff0c0c !important;
+}
+
+.button-as-link:hover {
+  color: #1e70bf !important;
+}
+
+.button-as-link-red:hover {
+  color: #e50000 !important;
+}

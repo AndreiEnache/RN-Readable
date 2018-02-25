@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Comment } from 'semantic-ui-react';
+import { Comment, Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import VoteScore from '../VoteScore/VoteScore';
@@ -33,13 +33,14 @@ const CommentListItem = ({
                 ? `/${categoryName}/${postId}`
                 : `/${categoryName}/${postId}/edit/${comment.id}`
             }
-            style={{ color: '#4183c4' }}
+            style={{ color: '#4183c4', fontSize: '1rem' }}
+            className="button-as-link"
           >
             Edit
           </Link>
-          <a role="button" onClick={onRemoveClick(comment)} style={{ color: 'red' }}>
+          <Button className="button-as-link-red" role="button" onClick={onRemoveClick(comment)}>
             Delete
-          </a>
+          </Button>
         </div>
       </Comment.Actions>
     </Comment.Content>

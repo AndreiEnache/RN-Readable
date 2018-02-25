@@ -100,15 +100,18 @@ export const loadPostById = postId => async (dispatch) => {
   }
 };
 
-const addPostRequest = () => ({
+const addPostRequest = post => ({
   type: TYPES.POST_ADD_REQUEST,
+  post,
 });
 const addPostSuccess = post => ({
   type: TYPES.POST_ADD_SUCCESS,
   post,
 });
-const addPostFailure = () => ({
+const addPostFailure = (error, post) => ({
   type: TYPES.POST_ADD_FAILURE,
+  error,
+  post,
 });
 
 export const editPostRequest = post => ({
@@ -138,12 +141,12 @@ export const addPost = (post, fromComments) => async (dispatch, getState) => {
       dispatch(editPostFailure(e, currentPost));
     }
   } else {
-    dispatch(addPostRequest());
+    dispatch(addPostRequest(post));
     try {
       const response = await api.addPost(post);
       dispatch(addPostSuccess(response));
     } catch (e) {
-      dispatch(addPostFailure(e));
+      dispatch(addPostFailure(e, post));
     }
   }
   if (fromComments) {

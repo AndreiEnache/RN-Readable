@@ -89,7 +89,7 @@ const posts = (
         sortBy,
       };
     case TYPES.POST_ADD_SUCCESS:
-      return { ...state, postsInCategory: [...state.postsInCategory, post] };
+      return { ...state, postsInCategory: [...state.postsInCategory, post], categoryName: 'all' };
     case TYPES.CATEGORY_CHANGE_SUCCESS:
       return { ...state, categoryName: categoryName || state.categoryName };
     case TYPES.COMMENT_DELETE_FAILURE:

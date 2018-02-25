@@ -30,9 +30,6 @@ export const getCommentsByPost = async (postId) => {
   const response = await fetch(url, {
     headers: { Authorization: 'whatever-you-want' },
   }).then(res => res.json());
-  if (!response[0]) {
-    throw new Error('Post does not exist');
-  }
   return response;
 };
 

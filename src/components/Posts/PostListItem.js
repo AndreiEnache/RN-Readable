@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Item, Button, Icon } from 'semantic-ui-react';
+import { Item, Button } from 'semantic-ui-react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import moment from 'moment';
@@ -43,16 +43,7 @@ const PostListItem = ({
         </Item.Meta>
         <Item.Description>{post.body}</Item.Description>
         <Item.Extra>
-          <Button.Group floated="right">
-            <Button primary onClick={handleEditClick}>
-              <Icon name="edit" />Edit
-            </Button>
-            <Button.Or />
-            <Button color="red" onClick={handleRemoveClick}>
-              <Icon name="trash" />Delete
-            </Button>
-          </Button.Group>
-          <div style={{ position: 'absolute', bottom: '0px' }} className="no-selection">
+          <div className="no-selection">
             <VoteScore
               voteScore={post.voteScore}
               commentCount={post.commentCount}
@@ -62,6 +53,22 @@ const PostListItem = ({
               postId={post.id}
               isInComments={!!match.params.postId}
             />
+            <Button
+              role="button"
+              onClick={handleEditClick}
+              style={{ color: '#4183c4', marginLeft: '1.5em' }}
+              className="button-as-link"
+            >
+              Edit
+            </Button>
+            <Button
+              role="button"
+              onClick={handleRemoveClick}
+              style={{ color: 'red', marginLeft: '1.5em' }}
+              className="button-as-link-red"
+            >
+              Delete
+            </Button>
           </div>
         </Item.Extra>
       </Item.Content>
