@@ -1,0 +1,19 @@
+.trigger {
+  cursor: pointer;
+}
+.main-container {
+  margin-top: 3.5em;
+  height: 100%;
+}
+.new-post {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+}
+
+.no-selection {
+  -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+  -moz-user-select: none; /* mozilla browsers */
+  -khtml-user-select: none; /* webkit (konqueror) browsers */
+  -ms-user-select: none; /* IE10+ */
+}
