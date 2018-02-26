@@ -1,6 +1,6 @@
 import v4 from 'uuid';
 
-const api = 'http://192.168.1.134:3001';
+const api = process.env.REACT_APP_BACKEND;
 
 export const getCategories = async () => {
   try {
