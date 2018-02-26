@@ -22,7 +22,6 @@ class Comments extends Component {
     this.props.addComment({ ...comment, parentId: post.id });
     this.props.history.push(`/${post.category}/${post.id}`);
   };
-  handleEdit = () => {};
   render() {
     const { post } = this.props;
     const { postId, action } = this.props.match.params;

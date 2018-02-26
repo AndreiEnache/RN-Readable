@@ -22,7 +22,7 @@ const PostListItem = ({
   const handleRemoveClick = () => {
     const { id } = post;
     deletePost(id);
-    history.push(`/${post.category}`);
+    history.push('');
   };
   const handleUpVote = () => {
     const { id } = post;
