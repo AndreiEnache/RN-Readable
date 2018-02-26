@@ -1,6 +1,6 @@
 import v4 from 'uuid';
 
-const api = process.env.REACT_APP_BACKEND;
+const api = 'http://localhost:3001';
 
 export const getCategories = async () => {
   try {

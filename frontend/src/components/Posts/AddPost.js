@@ -49,6 +49,30 @@ class AddPost extends Component {
       this.props.history.push('');
     }
   };
+  showInputsIfAdding = (id, category, categories, author) => {
+    if (!id) {
+      return (
+        <React.Fragment>
+          <Form.Input
+            placeholder="Author"
+            name="author"
+            value={author}
+            label="Author"
+            onChange={this.handleChange}
+          />
+          <Form.Dropdown
+            selection
+            options={categories}
+            placeholder="Category"
+            name="category"
+            value={category}
+            label="Category"
+            onChange={this.handleChange}
+          />
+        </React.Fragment>
+      );
+    }
+  };
   render() {
     const {
       title, category, body, author, id,
@@ -67,26 +91,7 @@ class AddPost extends Component {
               label="Title"
               onChange={this.handleChange}
             />
-            {!id && (
-              <Form.Input
-                placeholder="Author"
-                name="author"
-                value={author}
-                label="Author"
-                onChange={this.handleChange}
-              />
-            )}
-            {!id && (
-              <Form.Dropdown
-                selection
-                options={categories}
-                placeholder="Category"
-                name="category"
-                value={category}
-                label="Category"
-                onChange={this.handleChange}
-              />
-            )}
+            {this.showInputsIfAdding(id, category, categories, author)}
             <Form.TextArea label="Body" name="body" value={body} onChange={this.handleChange} />
             <Form.Button primary type="submit">
               {id ? 'Save' : 'Submit'}
